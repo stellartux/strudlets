@@ -1,3 +1,15 @@
+export const colorwheel = register(['colorwheel', 'colorWheel'], (p) => p.withHap((hap) => {
+  hap.value.color = [
+    '#ff4040', '#11ee80',
+    '#bf00bf', '#80ee11',
+    '#4040ff', '#ee8011',
+    '#00bfbf', '#ee1180',
+    '#40ff40', '#8011ee',
+    '#bfbf00', '#1180ee'
+  ][hap.value.note % 12]
+  return hap
+}))
+
 export const roman = register('roman', (p) => p.pick({
   I: stack("0","4","7"),
   bII: stack("1","5","8"),
