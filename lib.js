@@ -10,6 +10,12 @@ export const colorwheel = register(['colorwheel', 'colorWheel'], (p) => p.withHa
   return hap
 }))
 
+export const lerp = register('lerp', (min, max, t) => t.mul(max - min).add(min))
+export const qerp = register('qerp', (min, max, t) => {
+  const v = lerp(t, min, max)
+  return v.mul(v)
+})
+
 export const roman = register('roman', (p) => p.pick({
   I: stack("0","4","7"),
   bII: stack("1","5","8"),
